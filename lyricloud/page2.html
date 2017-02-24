@@ -6,9 +6,8 @@
 </head>
 
 <script defer type="text/javascript" >
-
 function Show()
-    { 
+{ 
 		if(document.getElementById("search").value == "john"){
 			
 			document.getElementById("artistNames").style.visibility="visible";
@@ -20,13 +19,19 @@ function Show()
 			document.getElementById("addbutton").style.visibility="visible";
 			document.getElementById("sharebutton").style.visibility="visible"; 
 			document.getElementById("gobutton").className = document.getElementById("gobutton").className + " move";
-			document.getElementById("wordcloud").src="wordcloud.png;
+			document.getElementById("wordcloud").src="wordcloud.png";
 		}
-	}
-	 
+}
+
+function inputchange( i){
+	
+	var text = document.getElementsByTagName('a')[i].innerHTML;
+	document.getElementById("search").value=text;			   
+
+}
 	$("gobutton").click(function() {
     $(".gobutton").toggleClass("buttonLeft");
-});
+	});
 
 </script>
 <script defer src="https://use.fontawesome.com/954d2dcd78.js"></script>
@@ -80,6 +85,7 @@ body {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+
   
 }
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
@@ -169,22 +175,22 @@ input[type="search"] {
 	<div class="wrapper">
         <div id="artistNames" class="artistNames">
             <table class="tblart" width="350" border="0" cellspacing="0" cellpadding="0">
-              <tbody>
+              <tbody id="t">
                 <tr>
-                  <td><img width="50px", height="50px" src=""/></td>
-                  <td><a href="" > John Legend</a></td>
+                  <td><img id="img1" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(0)"> John Legend</a></td>
                 </tr>
                 <tr>
-                  <td><img width="50px", height="50px" src=""/></td>
-                  <td><a href="">John Lenon</a></td>
+                  <td><img id="img2" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(1)">John Lenon</a></td>
                 </tr>
                 <tr>
-                  <td><img width="50px", height="50px" src=""/></td>
-                  <td><a href="">John Mayer</a></td>
+                  <td><img  id="img3" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(2)">John Mayer</a></td>
                 </tr>
                 <tr>
-                  <td><img width="50px", height="50px" src=""/></td>
-                  <td><a href="">John Stweart</a></td>
+                  <td><img id="img4" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(3)">John Stweart</a></td>
                 </tr>
               </tbody>
             </table>
