@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
+<script defer type="text/javascript" >
+function gocloud()
+{ 
+	
+}
+</script>
 </head>
 <style>
 
@@ -21,6 +27,33 @@ body {
   margin-top:10px ;
   margin-bottom:auto;
 
+}
+.back{
+ 	background-color:rgb(128,0,128);
+	background-image:url(603%202.png);
+	background-repeat:no-repeat;
+	background-position: left;
+	padding-left:10px;
+	padding-top: 5px;
+	text-align:right;
+	color:#FFFFFF;
+	float:left;
+	color:#545050;
+	width: 80px;
+	border-radius: 4px;
+	border: 2px solid #631962;
+	height: 30px;
+	background-color: purple; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+
+}
+.backdiv{
+	text-align:left;
 }
 .header{
 	width:100%;
@@ -43,7 +76,7 @@ body {
 	height:30px;
 	text-align:left;
 }
-
+.
 .content{
 	background-color:#736570;
 	background: linear-gradient(180deg, #736570, #64505F);
@@ -70,43 +103,46 @@ ul{
         <div class="header"	>
         	<p id="wordClicked"><b> Word Clicked</b></p>
         </div>
-      <div class="midtext"	>
+      	<div class="midtext"	>
         	<p id="wordClicked"> List of lates songs containing word: "Word Clicked"</p>
         </div>
-      <div class="content">
-         
-         <table  id="songList" width="600" border="0" cellspacing="0" cellpadding="0">
-          <tbody>
-            <tr>
-              <td><ul><li>Song Name</li></ul></td>
-              <td>Released Year</td>
-              <td>Artist</td>
-            </tr>
-            <tr>
-              <td><ul><li>Song Name</li></ul></td>
-              <td>Released Year</td>
-              <td>Artist</td>
-            </tr>
-            <tr>
-              <td><ul><li>Song Name</li></ul></td>
-              <td>Released Year</td>
-              <td>Artist</td>
-            </tr>
-            <tr>
-              <td><ul><li>Song Name</li></ul></td>
-              <td>Released Year</td>
-              <td>Artist</td>
-            </tr>
-            <tr>
-              <td><ul><li>Song Name</li></ul></td>
-              <td>Released Year</td>
-              <td>Artist</td>
-            </tr>
-          </tbody>
-        </table>
-        	
+      	<div class="content">
+      		<div class="backdiv">
+      			<input action="action" onclick="history.go(-1);" class="back" type="button" value="Back" />
+      		</div>
+         	<div>
+                 <table  id="songList" width="600" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul><li>Song Name</li></ul></td>
+                      <td>Released Year</td>
+                      <td>Artist</td>
+                    </tr>
+                    <tr>
+                      <td><ul><li>Song Name</li></ul></td>
+                      <td>Released Year</td>
+                      <td>Artist</td>
+                    </tr>
+                    <tr>
+                      <td><ul><li>Song Name</li></ul></td>
+                      <td>Released Year</td>
+                      <td>Artist</td>
+                    </tr>
+                    <tr>
+                      <td><ul><li>Song Name</li></ul></td>
+                      <td>Released Year</td>
+                      <td>Artist</td>
+                    </tr>
+                    <tr>
+                      <td><ul><li>Song Name</li></ul></td>
+                      <td>Released Year</td>
+                      <td>Artist</td>
+                    </tr>
+                  </tbody>
+                </table>
+        	</div>
         </div>
-         <div class="back">Content for  class "back" Goes Here</div>
+         
     </div>
 </body>
 </html>
