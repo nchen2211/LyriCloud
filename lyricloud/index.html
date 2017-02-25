@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lyricloud</title>
+
+<script defer type="text/javascript" >
+function Show()
+{ 
+		if(document.getElementById("search").value == "john"){
+			
+			document.getElementById("artistNames").style.visibility="visible";
+			document.getElementById("wordcloud").style.visibility="hidden";
+		}
+		else{
+			document.getElementById("artistNames").style.visibility="hidden";
+			document.getElementById("wordcloud").style.visibility="visible";
+			document.getElementById("addbutton").style.visibility="visible";
+			document.getElementById("sharebutton").style.visibility="visible"; 
+			document.getElementById("gobutton").className = document.getElementById("gobutton").className + " move";
+			document.getElementById("wordcloud").src="wordcloud.png";
+		}
+}
+
+function inputchange( i){
+	
+	var text = document.getElementsByTagName('a')[i].innerHTML;
+	document.getElementById("search").value=text;			   
+
+}
+	$("gobutton").click(function() {
+    $(".gobutton").toggleClass("buttonLeft");
+	});
+
+</script>
+<script defer src="https://use.fontawesome.com/954d2dcd78.js"></script>
+</head>
+
+
+<style>
+
+body {
+	
+	alignment-adjust:100% ;
+	text-align:center;
+	vertical-align:central;
+	background: gray;
+}
+a{
+	color:#000000;
+	text-decoration:none;
+}
+
+.box{
+	  margin: 0 auto;
+	  width: 300px;
+	  height: 50px;
+	  margin-top:150px ;
+	  margin-bottom:auto;
+	  z-index:-1;
+}
+.wrapper{
+	position:relative;
+	text-align:center;
+	z-index:1;
+}
+.cloud{
+	pointer-events:none;
+	position: absolute;
+	display: inline-block;
+	left: 0px;
+	top: -6px;
+	z-index:0;
+}
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #ffffff;
+  }
+.container-1 input#search{
+  width: 300px;
+  height: 50px;
+  border:purple solid medium;
+  font-size: 10pt;
+  float: left;
+  text-align:left;
+  color: #000000;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  
+}
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: rgba(198,169,202,1.00);
+  }
+  
+.container-1 .icon{
+  position: absolute;
+  margin-left:110px;
+  margin-top: 17px;
+  color: #4f5b66;
+  z-index:auto;
+}
+
+input[type="search"] {
+	-webkit-appearance: textfield;
+}
+.button{
+	background-color:rgb(128,0,128);
+	color:#545050;
+	width: 70px;
+	border-radius: 4px;
+	border: 2px solid #631962;
+	height: 30px;
+	background-color: purple; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.artistNames{
+	visibility:hidden;
+	align-items:left;
+	z-index:4;
+	
+}
+.tblart{
+	z-index:5;
+	text-align:left;
+}
+#gobutton{
+	background-color:rgb(128,0,128);
+	color:#AFAAAA;
+	
+}
+#gobutton.move
+{
+	float:left;
+	margin-left:30px;
+}
+#addbutton{
+	background-color:#55298B;
+	color:#AFAAAA;
+	float:left;
+	display:inline-block;
+	
+}
+#sharebutton{
+	background-color: #4865b5;
+	background-image:url(../fshare.png);
+	background-repeat:no-repeat;
+	background-position: left;
+	padding-left:10px;
+	padding-top: 5px;
+	text-align:right;
+	color:#FFFFFF;
+	float:left;
+	display:inline-block;
+	
+}
+#btns{
+	vertical-align:central;
+	
+}
+
+
+</style>
+<body class="bgcolor">
+
+
+<div class="box">
+	<div class="wrapper">
+        <div id="artistNames" class="artistNames">
+            <table class="tblart" width="350" border="0" cellspacing="0" cellpadding="0">
+              <tbody id="t">
+                <tr>
+                  <td><img id="img1" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(0)"> John Legend</a></td>
+                </tr>
+                <tr>
+                  <td><img id="img2" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(1)">John Lenon</a></td>
+                </tr>
+                <tr>
+                  <td><img  id="img3" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(2)">John Mayer</a></td>
+                </tr>
+                <tr>
+                  <td><img id="img4" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(3)">John Stweart</a></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="cloud">
+        	<img id="wordcloud" src="webLogo.png" width="300px" />
+        </div>
+    </div>
+  <div class="container-1">
+      <span class="icon"><i class="fa fa-search" ></i></span>
+      	
+      		<input type="search" id="search"  placeholder="Search..." autocomplete="on"/>
+  		
+  </div>
+  <div id="btns">
+      <div >
+      		<input action="action" id="gobutton" type="button" class="button" value="GO" onClick="Show()" />
+      </div>
+      
+          <input  id="addbutton" type="button" class="button" value="ADD" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
+          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" />
+      
+  </div>
+</div>
+</body>
+
+</html>
+
