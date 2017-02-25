@@ -126,6 +126,10 @@
           }
         })
         .on("click", function(d, i) {
+          console.log(d.text);
+          /*
+          add the clickable function here to substitute the console log
+          */
           if (d.href) window.location = d.href;
         });
 
