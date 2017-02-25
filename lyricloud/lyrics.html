@@ -30,16 +30,16 @@ body {
 }
 .back{
  	background-color:rgb(128,0,128);
-	background-image:url(images/603%202.png);
+	background-image:url(603%202.png);
 	background-repeat:no-repeat;
 	background-position: left;
-	padding-left:10px;
+	padding-left:20px;
 	padding-top: 5px;
 	text-align:right;
 	color:#FFFFFF;
 	float:left;
 	color:#545050;
-	width: 80px;
+	width: 100px;
 	border-radius: 4px;
 	border: 2px solid #631962;
 	height: 30px;
@@ -49,7 +49,7 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px; 
+    font-size: 11px; 
 
 }
 .backdiv{
@@ -88,7 +88,7 @@ body {
 
 }
 ul{
-	list-style-image:url(images/iTunes.png);
+	list-style-image:url(iTunes.png);
 }
 
 #songList{
@@ -101,45 +101,18 @@ ul{
 <body>
     <div class="box">
         <div class="header"	>
-        	<p id="wordClicked"><b> Word Clicked</b></p>
+        	<p id="wordClicked"><b> Song Name</b></p>
         </div>
       	<div class="midtext"	>
-        	<p id="wordClicked"> List of lates songs containing word: "Word Clicked"</p>
+        	
         </div>
       	<div class="content">
       		<div class="backdiv">
-      			<input action="action" onclick="window.history.back();" class="back" type="button" value="Back" />
+      			<input action="action" onclick="window.history.back();" class="back" type="button" value="Back to Songs" />
+                <input action="action" onclick="javascript:history.go(-2);" class="back" type="button" value="Back to Cloud" />
       		</div>
          	<div>
-                 <table  id="songList" width="600" border="0" cellspacing="0" cellpadding="0">
-                  <tbody>
-                    <tr>
-                      <td><a href="lyrics.html"><ul><li>Song Name</li></ul></a></td>
-                      <td>Released Year</td>
-                      <td>Artist</td>
-                    </tr>
-                    <tr>
-                      <td><a href="lyrics.html"><ul><li>Song Name</li></ul></a></td>
-                      <td>Released Year</td>
-                      <td>Artist</td>
-                    </tr>
-                    <tr>
-                      <td><a href="lyrics.html"><ul><li>Song Name</li></ul></a></td>
-                      <td>Released Year</td>
-                      <td>Artist</td>
-                    </tr>
-                    <tr>
-                      <td><a href="lyrics.html"><ul><li>Song Name</li></ul></a></td>
-                      <td>Released Year</td>
-                      <td>Artist</td>
-                    </tr>
-                    <tr>
-                      <td><a href="lyrics.html"><ul><li>Song Name</li></ul></a></td>
-                      <td>Released Year</td>
-                      <td>Artist</td>
-                    </tr>
-                  </tbody>
-                </table>
+
         	</div>
         </div>
          
