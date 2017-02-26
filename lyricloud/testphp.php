@@ -17,7 +17,7 @@ class artistClass{
 
 
     public function setName($in_name){
-        $name = $in_name;
+        $this->name = $in_name;
     }
     public function getName(){
         return $name;
@@ -34,34 +34,40 @@ class artistClass{
 
 class songClass{
     private $songID;
-    private $songName;
+    private $songName = "hhhhh";
     private $lwords;//an array of the words
     private $lyrics;//an array of words
     private $artistID;
 
     public function setID($in_id){
-        $songID = $in_id;
+        $this->songID = $in_id;
     }
     public function setName($in_name){
-        $songName = $in_name;
+        // var_dump($songName);
+        $this->songName = $in_name;
+        // echo $this->songName;
     }
     public function getName(){
-        return $songName;
+        return $this->songName;
+    }
+    public function setWordArray($in_array){
+        $this->lwords = $in_array;
     }
     public function setLyrics($in_lyrics){
-        $lyrics = $in_lyrics;
+        $this->lyrics = $in_lyrics;
     }
     public function getLyrics(){
-        return $lyrics;
+        return $this->lyrics;
     }
     public function setArtist($in_artist){
-        $artistID = $in_artist;
+        $this->artistID = $in_artist;
     }
     //return the count of an given word in that song.
     public function returnCount($in_word){
         $count = 0;
-        foreach ($lwords as $word ) {
+        foreach ($this->lwords as $word ) {
             if($word == $in_word){
+                // echo "<br>here is a match<br>";
                 $count++;
             }
         }
@@ -81,21 +87,21 @@ class wordClass{
     // private $count;
 
     public function setWord($in_word){
-        $my_word = $in_word;
+        $this->my_word = $in_word;
     }
-    public function setFreq($in_freq){
-        $my_freq = $in_freq;
-    }
+    // public function setFreq($in_freq){
+    //     $my_freq = $in_freq;
+    // }
     
     public function getFreq(){
         return $count;
     }
     public function setSongList($in_array){
-        $song_array = $in_array;
+        $this->song_array = $in_array;
     }
     public function getSongID(){//return the song id
         $idList = array();
-        foreach ($song_array as $each_song) {
+        foreach ($this->song_array as $each_song) {
             # code...
             $each_id = $each_song["songID"];
             array_push($idList, $each_id);
@@ -124,31 +130,37 @@ function cmpWord($word1, $word2){
 
 function countFreq($in_word){
     global $songList;
+    // var_dump($songList);
     global $wordList;
     // array_push($wordList, $in_word);
-    for($i = 0; $i< $songList.size(); $i++){
+    $return_songs = array();
+
+    // for($i = 0; $i< count($songList); $i++){
+       for($i = 0; $i< 5; $i++){
+
     // foreach ($songList as $song) {
         # code...
-        $return_songs = array();
+        // echo "<br>this is the loop  ".$i."<br>";
         $key0 = "songID";
         $key1 = "songname";
         $key2 = "freq";
-        $word_count = $songList[$i].returnCount($in_word);
+        $word_count = $songList[$i]->returnCount($in_word);
         if($word_count > 0){
             // $entry =  array("songID" =>$i , "songname" => $song.getName(), "freq" => $word_count);
-
-            $entry =  array($key0 =>$i , $key1 => $song.getName(), $key2 => $word_count);
+            
+            $entry =  array($key0 =>$i , $key1 => $songList[$i]->getName(), $key2 => $word_count);
             array_push($return_songs, $entry);
         }
         //put the frequency info into the word Class
         $new_word = new wordClass();
-        $new_word.setWord($in_word);
-        $new_word.setSongList($return_songs);
+        $new_word->setWord($in_word);
+        $new_word->setSongList($return_songs);
 
         array_push($wordList, $new_word);
-
         //we can 
     }
+    return $return_songs;
+
 }
 
 function getLyrics($in_id){
@@ -209,12 +221,19 @@ function addToArtistList($in_artist_name){
     $array = $json->{'toptracks'}->{'track'};
     $arraycount = count($array);
     global $songList;
+    // $new_song = new songClass();
     for($i = 0; $i<$arraycount; $i++){
         $each = $array[$i];
         //adding each name to the name array
-        array_push($songList, $each->{'name'});
+        $new_song = new songClass();
+        // var_dump($each->{'name'});
+        $new_song->setName($each->{'name'});
+
+        // var_dump($new_song);
+        // echo "<br><br>";
+        array_push($songList, $new_song);
     }
-    // var_dump($songList);
+    // var_dump($songList[0]);
     bigString($in_artist_name);
 
     
@@ -223,15 +242,16 @@ function addToArtistList($in_artist_name){
 
 function bigString($in_artist_name){
     global $songList;
-    echo "this is a test<br>";
-    // var_dump($songList);
+    // echo "this is a test<br>";
+    // var_dump($songList[0]);
     $str;
     for($x = 0; $x < 5; $x++){
         // echo songList.size."<br>";
     // foreach ($songList as $each_song) {
         # code...
         // $url = "https://lyric-api.herokuapp.com/api/find/".$in_artist_name."/".$each_song;
-        $url = "https://api.lyrics.ovh/v1/".rawurlencode ( $in_artist_name)."/".$songList[$x];
+        // echo"<br>this is the name: ".$songList[$x]->getName()."<br>";
+        $url = "https://api.lyrics.ovh/v1/".rawurlencode ( $in_artist_name)."/".$songList[$x]->getName();
         // echo "<br> this is the url".$url."<br>";
         $defaults = array(
         // CURLOPT_URL => 'http://ws.audioscrobbler.com/2.0/?',
@@ -256,7 +276,12 @@ function bigString($in_artist_name){
         // var_dump($json) ;
 
         // echo "<Br> end of miehhhhhh<br><br>";
-        $str.= trim( preg_replace( "/[^0-9a-z]+/i", " ", $json ) );
+        $temp = trim( preg_replace( "/[^0-9a-z]+/i", " ", $json ) );
+        $word_array = explode(" ", $temp);
+        // var_dump($songList[$x]->getName());
+        $songList[$x]->setWordArray($word_array);
+        // echo "<br>this is the word array".$songList[$x]$word_array[0]."<br>";
+        $str.= $temp;
     // print_r($output);
     }        
     echo $str;
@@ -279,9 +304,9 @@ if ($q !== "") {
     // }
     addToArtistList("Justin Bieber");
     // var_dump($songList); 
-    $return = array("songs"=>$songList);
+    // $return = array("songs"=>$songList);
 
-    $return = json_encode($return);
+    // $return = json_encode($return);
     // var_dump($return);
     // echo $songList;
     // echo $return;
@@ -295,6 +320,18 @@ if ($q !== "") {
 
     // // $return = json_encode($return);
     // echo $return;
+
+
+$clickedWord = $_REQUEST["clicked_word"];
+// var_dump($clickedWord);
+if($clickedWord != ""){
+    echo "shouldn't see this".$clickedWord;
+    $to_return = countFreq($clickedWord);
+    echo "<br> here is to return: <br>";
+    var_dump($to_return);
+    $to_return = json_encode($to_return);
+
+}
 
 
 ?>
