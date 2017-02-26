@@ -32,7 +32,7 @@ function inputchange( i){
 	
 	
 	function showCloud(){
-		document.getElementById("wordcloudimg").style.visibility="hidden";
+		// document.getElementById("wordcloudimg").style.visibility="hidden";
 		var artist = document.getElementById('search').value;
 		console.log(artist);
 
