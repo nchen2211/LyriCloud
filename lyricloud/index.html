@@ -8,15 +8,13 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>lastfm-autocomplete</title>
-        
+
+
         <link href="lastfm-autocomplete-master/bower_components/bootstrap/dist/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css"/>
         <link href="lastfm-autocomplete-master/bower_components/bootstrap/dist/css/bootstrap-theme.css" media="screen" rel="stylesheet" type="text/css"/>
-       
         <link href="lastfm-autocomplete-master/lastfm-autocomplete.css" media="screen" rel="stylesheet" type="text/css"/>
 
 
-
-        
 <script defer type="text/javascript"  src="myjsfile.js"></script>
 <script defer src="https://use.fontawesome.com/954d2dcd78.js"></script>
 	<script src="lib/d3/d3.js"></script>
@@ -27,6 +25,7 @@
 </head>
 
 
+<div id="wordcloud"></div>
 
 <body class="bgcolor">
 
@@ -55,15 +54,13 @@
               </tbody>
             </table>
         </div>
-        <div class="cloud">
-        	<img id="wordcloudimg" src="images/webLogo.png" width="500px"  />
-            <div class="cloud" id="wordcloud"></div>
-           
-        
-        </div>
+       <!-- <div class="cloud"> -->
+        	<!--<img id="wordcloudimg" src="images/webLogo.png" width="500px"  />-->
+      <!--  </div> -->
     </div>
 
 </div>
+
 <div class="box3">
   
         <div class="container">
@@ -101,7 +98,7 @@
       		<input action="action" id="gobutton" type="button" class="button" value="GO" onClick="showCloud()" />
       </div>
       
-          <input  id="addbutton" type="button" class="button" value="ADD" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
+          <input  id="addbutton" type="button" class="button" value="Add to Cloud" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
           <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" onClick = "cropImg()"/>
       
   </div>

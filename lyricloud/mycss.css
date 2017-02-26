@@ -51,6 +51,10 @@ a{
 	top: -34px;
 	z-index: 0;
 }
+
+#wordcloud {
+
+}
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
     outline:none;
     background: #ffffff;

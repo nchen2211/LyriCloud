@@ -1,5 +1,14 @@
 // JavaScript Document
 
+// Enter key triggers GO button
+document.getElementById("gobutton")
+    .addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode == 13) {
+            document.getElementById("gobutton").click();
+        }
+    });
+
 function Show()
 { 
 		if(document.getElementById("search").value == "john"){
@@ -30,21 +39,21 @@ function inputchange( i){
 */
 
 	
-	
-	function showCloud(){
-		document.getElementById("wordcloudimg").style.visibility="hidden";
-		var artist = document.getElementById('search').value;
-		console.log(artist);
+// show the word cloud
+function showCloud(){
+	//document.getElementById("wordcloudimg").style.visibility="hidden";
+	var artist = document.getElementById('search').value;
+	console.log(artist);
 
-		// var string_to_process = loadAllLyrics(artist); 
-		// console.log(string_to_process);
-		d3.wordcloud()
-			.size([500, 300])
-			.fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
-			.words(words)
-			.start();
+	// var string_to_process = loadAllLyrics(artist);
+	// console.log(string_to_process);
+	d3.wordcloud()
+		.size([500, 300])
+		.fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
+		.words(words)
+		.start();
 
-	}
+}
 
 function loadAllLyrics(in_name){
 	var str = in_name;
@@ -55,8 +64,6 @@ function loadAllLyrics(in_name){
 		if(this.readyState == 4 && this.status ==200){
 			console.log(this.responseText);
 			 var returnValue= JSON.parse(this.responseText); 
-			 
-			 // alert("what the fu");
 
 			 document.getElementById('txtHint').innerHTML = returnValue.songs;
 		}
@@ -65,4 +72,6 @@ function loadAllLyrics(in_name){
 	xmlhttp.send();
 	return returnValue;
 }
+
+
    
