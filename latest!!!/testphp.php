@@ -112,7 +112,7 @@ class wordClass{
         global $songList;
         $entry = $song_array[$in_id];
         $id = $entry["songID"];
-        $Lyrics = songList[$id].getLyrics();
+        $Lyrics = $songList[$id].getLyrics();
         return $Lyrics;
     }
 
