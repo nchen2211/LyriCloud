@@ -130,6 +130,13 @@
           /*
           add the clickable function here to substitute the console log
           */
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange() = function() {
+            console.log(this.responseText);
+          }
+          xmlhttp.open("GET", "getText.php?clicked_word=" + d.text, true);
+          xmlhttp.send();
+
           if (d.href) window.location = d.href;
         });
 

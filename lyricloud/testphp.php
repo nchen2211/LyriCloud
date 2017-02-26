@@ -223,10 +223,10 @@ function addToArtistList($in_artist_name){
 
 function bigString($in_artist_name){
     global $songList;
-    // echo "this is a test<br>";
+    echo "this is a test<br>";
     // var_dump($songList);
     $str;
-    for($x = 0; $x < 1; $x++){
+    for($x = 0; $x < 5; $x++){
         // echo songList.size."<br>";
     // foreach ($songList as $each_song) {
         # code...
@@ -295,16 +295,6 @@ if ($q !== "") {
 
     // // $return = json_encode($return);
     // echo $return;
-
-
-$clickedWord = $_REQUEST("clicked_word");
-if($clickedWord != ""){
-    echo $clickedWord;
-}
-
-
-
-
 
 
 ?>

@@ -33,7 +33,11 @@ function inputchange( i){
 	
 	function showCloud(){
 		document.getElementById("wordcloudimg").style.visibility="hidden";
-			
+		var artist = document.getElementById('search').value;
+		console.log(artist);
+
+		// var string_to_process = loadAllLyrics(artist); 
+		// console.log(string_to_process);
 		d3.wordcloud()
 			.size([500, 300])
 			.fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
@@ -41,4 +45,24 @@ function inputchange( i){
 			.start();
 
 	}
+
+function loadAllLyrics(in_name){
+	var str = in_name;
+	var processed = "";
+	var returnValue = "";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if(this.readyState == 4 && this.status ==200){
+			console.log(this.responseText);
+			 var returnValue= JSON.parse(this.responseText); 
+			 
+			 // alert("what the fu");
+
+			 document.getElementById('txtHint').innerHTML = returnValue.songs;
+		}
+	};
+	xmlhttp.open("GET", "testphp.php?q="+str+"&", true);
+	xmlhttp.send();
+	return returnValue;
+}
    
