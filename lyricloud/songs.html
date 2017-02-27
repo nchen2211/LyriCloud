@@ -8,7 +8,10 @@
 </head>
 
 
-
+<!-- This page shows the clicked 
+	 word in the wordcloud 
+     and the songs list that 
+     contain the word-->
 <body>
     <div class="box1">
         <div class="header"	>
@@ -22,13 +25,13 @@
       		<div class="backdiv">
       			<input action="action" onclick="window.history.back();" class="back" type="button" value="Back" />
       		</div>
-         	<div>
-                 <table  id="songList" width="600" border="0" cellspacing="0" cellpadding="0">
+         	<div class="songTable">
+                 <table  id="songList" width="500" border="0" cellspacing="0" cellpadding="0">
                   <tbody>
                     <tr>
                     	<td>ID</td>
-                      <td><a href="lyrics.html">Song Name</a></td>
-                      <td>Frequency</td>
+                      	<td><a href="lyrics.html">Song Name</a></td>
+                      	<td>Frequency</td>
                     </tr>
                   </tbody>
                 </table>

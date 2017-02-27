@@ -217,7 +217,8 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px; 
+    font-size: 16px;
+	margin-right:20px;
 
 }
 .back2{
@@ -247,6 +248,7 @@ body {
 }
 .backdiv{
 	text-align:left;
+	margin-right: 20px;
 }
 a{
 	color:#000000;
@@ -291,4 +293,11 @@ ul{
 
 #songList{
 	text-align:left;
+	margin-left: 10px;
+	width:600px;
+}
+.songTable{
+	margin-left: 10px;
+	
+
 }
