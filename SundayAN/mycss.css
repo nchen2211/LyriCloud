@@ -1,0 +1,271 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+body {
+	
+	alignment-adjust:100% ;
+	text-align:center;
+	vertical-align:central;
+	background: gray;
+}
+a{
+	color:#000000;
+	text-decoration:none;
+}
+
+.box{
+	  margin: 0 auto;
+	  width: 500px;
+	  height: 50px;
+	  margin-top:100px ;
+	  margin-bottom:auto;
+	  text-align:center;
+	  alignment-adjust:central;
+	  align-content:center;
+	  z-index:-1;
+}
+.box3{
+	  margin: 0 auto;
+	  width: 300px;
+	  height: 50px;
+	  margin-top:250px ;
+	  margin-bottom:auto;
+	  text-align:center;
+	  alignment-adjust:central;
+	  align-content:center;
+	  z-index:-1;
+}
+.wrapper{
+	position:relative;
+	text-align:center;
+	align-content:center;
+	z-index:1;
+}
+.cloud{
+	align-content:center;
+	pointer-events: none;
+	position: absolute;
+	display: inline-block;
+	left: 0px;
+	top: -34px;
+	z-index: 0;
+}
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #ffffff;
+  }
+.container-1 input#search{
+  width: 300px;
+  height: 50px;
+  border:purple solid medium;
+  font-size: 10pt;
+  float: left;
+  text-align:left;
+  color: #000000;
+  padding-left: 45px;
+  margin-top:10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  
+}
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: rgba(198,169,202,1.00);
+  }
+.container-1 {
+ 	align-content:center;
+	width:300px;
+ }
+.container-1 .icon{
+  position: absolute;
+  margin-left:110px;
+  margin-top: 17px;
+  color: #4f5b66;
+  z-index:auto;
+}
+
+input[type="search"] {
+	-webkit-appearance: textfield;
+}
+.button{
+	background-color:rgb(128,0,128);
+	color:#545050;
+	width: 70px;
+	border-radius: 4px;
+	border: 2px solid #631962;
+	height: 30px;
+	background-color: purple; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.artistNames{
+	visibility:hidden;
+	align-items:left;
+	z-index:4;
+	
+}
+.tblart{
+	z-index:5;
+	text-align:left;
+}
+#gobutton{
+	background-color:rgb(128,0,128);
+	color:#AFAAAA;
+	
+}
+#gobutton.move
+{
+	float:left;
+	margin-left:30px;
+}
+#addbutton{
+	background-color:#55298B;
+	color:#AFAAAA;
+	float:left;
+	display:inline-block;
+	
+}
+#sharebutton{
+	background-color: #4865b5;
+	background-image:url(images/fshare.png);
+	background-repeat:no-repeat;
+	background-position: left;
+	padding-left:10px;
+	padding-top: 5px;
+	text-align:right;
+	color:#FFFFFF;
+	float:left;
+	display:inline-block;
+	
+}
+#btns{
+	width:300px;
+	vertical-align:central;
+	align-content: center;
+	
+}
+
+
+/*song page*/
+
+body {
+	margin:0 auto;
+	alignment-adjust:100% ;
+	text-align:center;
+	vertical-align:central;
+	background: gray;
+	
+}
+.box1{
+  margin: 0 auto;
+  width: 900px;
+  height: 700px;
+  margin-top:10px ;
+  margin-bottom:auto;
+
+}
+.back{
+ 	background-color:rgb(128,0,128);
+	background-image:url(images/603%202.png);
+	background-repeat:no-repeat;
+	background-position: left;
+	padding-left:10px;
+	padding-top: 5px;
+	text-align:right;
+	color:#FFFFFF;
+	float:left;
+	color:#545050;
+	width: 80px;
+	border-radius: 4px;
+	border: 2px solid #631962;
+	height: 30px;
+	background-color: purple; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+
+}
+.back2{
+ 	background-color:rgb(128,0,128);
+	background-image:url(images/603%202.png);
+	background-repeat:no-repeat;
+	background-position: left;
+	padding-left:10px;
+	padding-top: 5px;
+	text-align:right;
+	color:#FFFFFF;
+	float:left;
+	color:#545050;
+	width: 110px;
+	border-radius: 4px;
+	border: 2px solid #631962;
+	height: 30px;
+	background-color: purple; 
+    border: none;
+    color: white;
+    text-align: right;
+	margin-right:10px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px; 
+
+}
+.backdiv{
+	text-align:left;
+}
+a{
+	color:#000000;
+	text-decoration:none;
+}
+.header{
+	width:100%;
+	height:80px;
+	border-color:#F4EEEE;
+	border-width:5px;
+	border-radius: 2px 20px 2px;
+	background-color: #6C1057;
+	background: linear-gradient(180deg, purple, #561250);
+	margin-top:30px;
+	text-align:center;
+	padding-top:15PX;
+	font-size:30px;
+	color:#DCC0D9;
+	
+}
+.midtext{
+	font-size:18px;
+	color:#453346;
+	height:30px;
+	text-align:left;
+}
+
+.content{
+	background-color:#736570;
+	background: linear-gradient(180deg, #736570, #64505F);
+	height: 700px;
+	width:100%;
+	padding-top:40px;
+	padding-left:10px;
+	align-content:center;
+	text-align:center;
+
+}
+ul{
+	list-style-image:url(images/iTunes.png);
+}
+
+#songList{
+	text-align:left;
+}

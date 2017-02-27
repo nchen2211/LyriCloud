@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lyricloud</title>
+
+<script defer type="text/javascript"  src="myjsfile.js"></script>
+<script defer src="https://use.fontawesome.com/954d2dcd78.js"></script>
+	<script src="lib/d3/d3.js"></script>
+    <script src="lib/d3/d3.layout.cloud.js"></script>
+    <script src="d3.wordcloud.js"></script>
+    <script src="example.words.js"></script>
+        <script src="hashtable.js"></script>
+
+<link rel="stylesheet" type="text/css" href="mycss.css">
+</head>
+
+
+
+<body class="bgcolor">
+
+
+<div class="box">
+	<div class="wrapper">
+        <div id="artistNames" class="artistNames">
+            <table class="tblart" width="350" border="0" cellspacing="0" cellpadding="0">
+              <tbody id="t">
+                <tr>
+                  <td><img id="img1" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(0)"> John Legend</a></td>
+                </tr>
+                <tr>
+                  <td><img id="img2" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(1)">John Lenon</a></td>
+                </tr>
+                <tr>
+                  <td><img  id="img3" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(2)">John Mayer</a></td>
+                </tr>
+                <tr>
+                  <td><img id="img4" width="50px" height="50px" src=""/></td>
+                  <td><a href="#" onClick="inputchange(3)">John Stweart</a></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="cloud">
+        	<img id="wordcloudimg" src="images/webLogo.png" width="500px"  />
+            <div class="cloud" id="wordcloud"></div>
+           
+        
+        </div>
+    </div>
+
+</div>
+<div class="box3">
+  <div class="container-1">
+      <span class="icon"><i class="fa fa-search" ></i></span>
+      <input type="search" id="search"  placeholder="Search..." autocomplete="on"/>
+  		
+  </div>
+  <div id="btns">
+      <div class="container-1" >
+      		<input action="action" id="gobutton" type="button" class="button" value="GO" onClick="showCloud()" />
+      </div>
+      
+          <input  id="addbutton" type="button" class="button" value="ADD" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
+          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" />
+      
+  </div>
+</div>
+</body>
+
+</html>
+

@@ -1,17 +1,21 @@
 var pronouns = ["your","i","they","their","we","them", "u",
-    "its","our","my","those","he","us","her","something",
-    "me","yourself","someone","everything","itself","everyone",
-    "themselves","anyone","him","whose","myself","everybody",
-    "ourselves","himself","somebody","yours","herself","whoever",
-    "you","that","it","this","what","which","these","his","she",
-    "lot","anything","whatever","nobody","none","mine","anybody",
-    "some","there","all","where","another","same","certain","nothing",
-    "self","nowhere","with","at","from","into","during","including",
-    "until","against","among","throughout","despite","towards","upon",
-    "concerning","of","to","in","for","on","by","about","like","through",
-    "over","before","between","after","since","without","under","within",
-    "along","following","across","behind","beyond","plus","except","but",
-    "up","out","around","down","off","above","near","the","a","one","some","few","m","u","s","an","it","d","t", "is","am","are","you", "be"]
+   "its","our","my","those","he","us","her","something",
+   "me","yourself","someone","everything","itself","everyone",
+   "themselves","anyone","him","whose","myself","everybody",
+   "ourselves","himself","somebody","herself","whoever",
+   "that","it","this","what","which","these","his","she",
+   "lot","anything","whatever","nobody","none","mine","anybody",
+   "some","there","all","where","another","same","certain","nothing",
+   "self","nowhere","with","at","from","into","during","including",
+   "until","against","among","throughout","despite","towards","upon",
+   "concerning","of","to","in","for","on","by","about","like","through",
+   "over","before","between","after","since","without","under","within",
+   "along","following","across","behind","beyond","plus","except","but",
+   "up","out","around","down","off","above","near","the","a","one","some",
+   "few","m","u","s","an","it","d","t", "is","was","am","were","are","you", "be", "be","ll",
+   "this", "these","that","those","he", "she", "it", "we", "they", "what", "who",
+   "me", "him", "her", "it", "us", "them", "whom","mine", "yours", "his", "hers",
+   "ours", "theirs", "ve","t","don","not"]
 
 var set = new Set(pronouns)
 
@@ -73,7 +77,7 @@ function search(in_data) {
     //     }
     // }
 
-    for (var i=0; i<wordArray.length; i++) {
+    for (var i= wordArray.length - 1; i >=0; i--) {
         if (set.has(wordArray[i].word)) {
             // console.log("deleting: " + wordArray[i].word);
             wordArray.splice(i,1);
@@ -87,7 +91,7 @@ function search(in_data) {
     
     //this process the cloud:
     var to_process = wordArray.slice(0, 250);
-    console.log("this is the arraysize "+ to_process.length);
+    // console.log("this is the arraysize "+ to_process.length);
     processCloud(to_process);
 }
 

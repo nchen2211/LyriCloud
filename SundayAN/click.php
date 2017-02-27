@@ -1,4 +1,5 @@
 <?php 
+
 require_once('classes.php');
 session_start();
 
@@ -12,6 +13,7 @@ $wordList = $_SESSION['words'];
 // var_dump($songList[0]);
 
 $clickedWord = $_REQUEST["clicked_word"];
+// $clickedWord = "but";
 // var_dump($clickedWord);
 if($clickedWord != ""){
     // echo "shouldn't see this".$clickedWord;

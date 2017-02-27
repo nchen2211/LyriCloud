@@ -139,6 +139,9 @@ function countFreq($in_word){
     // array_push($wordList, $in_word);
     $return_songs = array();
 
+        // session_unset();
+// session_destroy();
+    // echo count($songList);
     for($i = 0; $i< count($songList); $i++){
        // for($i = 0; $i< 2; $i++){
 

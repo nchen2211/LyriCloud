@@ -1,11 +1,11 @@
 <?php
 require_once('classes.php');
 session_start();
-//initialize variables
-$artistList = array();// stores a list of artist
-$songList = array();
-$wordList = array();
-$str = "";
+// initialize variables
+// $artistList ;// stores a list of artist
+// $songList ;
+// $wordList ;
+// $str ;
 // $lyrics
 
 //creating classes
@@ -50,7 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function addToArtistList($in_artist_name){
+    // echo $in_artist_name;
     global $artistList;
+    global $songList;
     $new_artist = new artistClass();
     $new_artist->setName($in_artist_name);
     
@@ -77,7 +79,7 @@ function addToArtistList($in_artist_name){
     // var_dump($json);
     $array = $json->{'toptracks'}->{'track'};
     $arraycount = count($array);
-    global $songList;
+    
     // $new_song = new songClass();
     $new_artist->setRangeStart(count($songList));
     for($i = 0; $i<$arraycount; $i++){
@@ -105,6 +107,7 @@ function bigString($in_artist_name){
     global $songList;
     // echo "this is a test<br>";
     // var_dump($songList[0]);
+    global $wordList;
     global $str;
 
     $current_artist = $artistList[count($artistList)-1];
@@ -154,38 +157,79 @@ function bigString($in_artist_name){
     }  
 
     echo $str;
+    // var_dump($songList);
+$_SESSION['artists'] = $artistList;
+$_SESSION['songs'] = $songList;
+$_SESSION['words'] = $wordList;
+$_SESSION['longString'] = $str;
+
 }
 
 //this function clears what's stored in the variables;
 function clearup(){
+    session_unset();
+    session_destroy();
+    session_start();
+
+    global $artistList;
+    // unset($artistsList);
     $artistList = array();
+    global $songList;
+    // unset($songList);
     $songList = array();
+    global $wordList;
+    // unset($wordList);
     $wordList = array();
-    $longstring = "";
+    global $str ;
+    // unset($str);
+    $str = "";
+
+
+    // $_SESSION['artists'] = $artistList;
+    // $_SESSION['songs'] = $songList;
+    // $_SESSION['words'] = $wordList;
+    // $_SESSION['longString'] = $str;
+    global $artist_name;
+    addToArtistList($artist_name);
+    // addToArtistList("Justin Bieber");
+
 }
 
 $artist_name = $_REQUEST["artist_name"];
 $clear = $_REQUEST["clear"];
 if ($artist_name != "") {
-
-    if($clear==true){
-        echo "<br><br> this is a clear decision <br><br>";
-    }else{
+    // var_dump($clear);
+    if($clear=="true"){
+        // echo "<br><br> this is a clear decision <br><br>";
+        // echo $artist_name;
         clearup();
+        // var_dump($artists);
+    }else{
+        // echo "<br><br> this is not a clear decision <br><br>";
+        // global $artistList;
+        // $artistList = $_SESSION['artists'];
+        // global $songList;
+        // $songList = $_SESSION['songs'];
+        // global $wordList ;
+        // $wordList = $_SESSION['words'];
+        // global $str ;
+        // $str = $_SESSION['longString'];
+        addToArtistList($artist_name);
+
     }
-    addToArtistList($artist_name);
 
 }else{
     echo "artist name is empty";
-}    
+} 
 
 $_SESSION['artists'] = $artistList;
 $_SESSION['songs'] = $songList;
 $_SESSION['words'] = $wordList;
 $_SESSION['longString'] = $str;
 
-// addToArtistList("Justin Bieber");
 
+// addToArtistList("Justin Bieber");
+// clearup();
 ?>
 
 
