@@ -32,7 +32,7 @@ function inputchange( i){
 	
 	
 	function showCloud(){
-		// document.getElementById("wordcloudimg").style.visibility="hidden";
+		document.getElementById("wordcloudimg").style.visibility="hidden";
 		var artist = document.getElementById('search').value;
 		console.log(artist);
 
@@ -42,9 +42,14 @@ function inputchange( i){
 		
 		d3.wordcloud()
 			.size([500, 300])
-			.fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
+			.fill(d3.scale.ordinal().range(["#9926b2", "#604865", "#6e08b5", "#504f50"]))
 			.words(words)
 			.start();
+			
+			document.getElementById("addbutton").style.visibility="visible";
+			document.getElementById("sharebutton").style.visibility="visible"; 
+			document.getElementById("gobutton").className = document.getElementById("gobutton").className + " move";
+			//document.getElementById("wordcloudimg").src="images/wordcloud.png";
 
 	}
 

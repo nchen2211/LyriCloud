@@ -25,7 +25,7 @@
 </head>
 
 
-<div id="wordcloud"></div>
+
 
 <body class="bgcolor">
 
@@ -54,20 +54,44 @@
               </tbody>
             </table>
         </div>
-       <!-- <div class="cloud"> -->
-        	<!--<img id="wordcloudimg" src="images/webLogo.png" width="500px"  />-->
-      <!--  </div> -->
+       <div class="cloud"> 
+        	<img id="wordcloudimg" src="images/webLogo.png" width="500px"  />
+            <div class="cloud" id="wordcloud"></div>
+      </div> 
     </div>
 
 </div>
 
 <div class="box3">
+<div class="box3">
+  <div class="container-1">
+      <!--<span class="icon"><i class="fa fa-search" ></i></span>-->
+      <input type="search" id="search"  placeholder="Artist..." autocomplete="on"/>
+  		
+  </div>
+  <div id="btns">
+      <div class="container-1" >
+      		<input action="action" id="gobutton" type="button" class="button" value="GO" onClick="showCloud()" />
+      </div>
+      
+          <input  id="addbutton" type="button" class="button" value="ADD Artist" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
+          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" />
+      
+  </div>
+  <div class="checkbox">
+                      <label><input type="checkbox" value="" id="artist" class="music-type" checked="checked" style="display:none"/> </label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="" id="album" class="music-type" style="display:none"/> </label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="" id="trach" class="music-type" style="display:none"/> </label>
+                    </div>
+</div>
   
-        <div class="container">
+        <!--<div class="container">
             <div class="row">
-             <span class="icon"><i class="fa fa-search" ></i></span>
-
-                
+             
                     <div class="form-group">
                         <input type="search" class="form-control" placeholder="Artist..." name="search" id="search"  />
                     </div>
@@ -85,7 +109,7 @@
 
 
             </div>
-        </div>
+        </div>-->
 
   <!--<div class="container-1">
       <span class="icon"><i class="fa fa-search" ></i></span>
@@ -93,15 +117,7 @@
   		
   </div>
   -->
-  <div id="btns">
-      <div class="container-1" >
-      		<input action="action" id="gobutton" type="button" class="button" value="GO" onClick="showCloud()" />
-      </div>
-      
-          <input  id="addbutton" type="button" class="button" value="Add to Cloud" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
-          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" onClick = "cropImg()"/>
-      
-  </div>
+  
 </div>
 
 
