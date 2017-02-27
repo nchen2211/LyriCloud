@@ -9,6 +9,8 @@ body {
 	vertical-align:central;
 	background: gray;
 }
+
+/*style for anchors */
 a{
 	color:#000000;
 	text-decoration:none;
@@ -44,7 +46,7 @@ a{
 }
 .cloud{
 	align-content:center;
-	pointer-events: none;
+	pointer-events: auto;
 	position: absolute;
 	display: inline-block;
 	left: 0px;
@@ -282,4 +284,7 @@ ul{
 	width: = 700px;
 	margin-top:50px;
 	margin-left:50px;
+}
+#wordcloud{
+	background-color: #C2BDBD;
 }
