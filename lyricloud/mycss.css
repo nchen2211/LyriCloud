@@ -37,6 +37,8 @@ a{
 	  z-index:-1;
 }
 .wrapper{
+	pointer-events: none;
+
 	position:relative;
 	text-align:center;
 	align-content:center;
@@ -44,7 +46,7 @@ a{
 }
 .cloud{
 	align-content:center;
-	pointer-events: none;
+	pointer-events: auto;
 	position: absolute;
 	display: inline-block;
 	left: 0px;
@@ -152,6 +154,7 @@ input[type="search"] {
 	color:#AFAAAA;
 	float:left;
 	display:inline-block;
+	font-size:12px;
 	
 }
 #sharebutton{
