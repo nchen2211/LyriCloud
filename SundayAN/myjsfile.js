@@ -30,36 +30,35 @@ function inputchange( i){
 */
 
 	
-	
-	function showCloud(){
-		var artist = document.getElementById('search').value;
-		console.log(artist);
+//this function clear the current cloud and add a new one	
+function showCloud(){
+	var artist = document.getElementById('search').value;
+	console.log(artist);
+	var string_to_process = loadAllLyrics(true, artist); 
+}
+//this functino keep adding to the current cloud
+function addArtist(){
+	console.log("the add artist function /n");
+	var artist = document.getElementById('search').value;
+	console.log(artist);
+	var string_to_process = loadAllLyrics(false, artist); 
+}
 
-		var string_to_process = loadAllLyrics(artist); 
-		console.log(string_to_process);
-
-		
-		
-
-	}
-
-function loadAllLyrics(in_name){
-	var str = in_name;
-	var processed = "";
+function loadAllLyrics(clear, in_name){
 	var returnValue = "";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status ==200){
 			// console.log(this.responseText);
 			 // var returnValue= JSON.parse(this.responseText); 
-			var returnValue= (this.responseText);
-			 // console.log(returnValue);
-			 search(returnValue);
+			returnValue= (this.responseText);
+			 console.log(returnValue);
+			search(returnValue);
 			 // alert("what the fu");
 
 		}
 	};
-	xmlhttp.open("GET", "testphp.php?q="+str+"&", true);
+	xmlhttp.open("GET", "testphp.php?artist_name="+in_name+"&clear ="+clear, true);
 	xmlhttp.send();
 
 	return returnValue;
@@ -73,6 +72,8 @@ function processCloud(in_array){
 		var each = {text: in_array[i].word, size: in_array[i].freq }
 		words.push(each);
 	}
+
+	localStorage.setItem("selectedWord", words);
 	// console.log("this is our word<br>");
 	// console.log(words);
 	d3.wordcloud()
@@ -80,4 +81,8 @@ function processCloud(in_array){
 			.fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
 			.words(words)
 			.start();
+
+	document.getElementById('addbutton').setAttribute("style",""); 
+
 }
+

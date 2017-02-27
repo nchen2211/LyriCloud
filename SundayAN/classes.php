@@ -6,25 +6,39 @@ session_start();
 $artistList = $_SESSION['artists'];
 $songList = $_SESSION['songs'];
 $wordList = $_SESSION['words'];
+$str = $_SESSION['longString'];
 
 class artistClass{
     private $artistID;
     private $name;
-    private $songList = array();
+    private $start;
+    private $end;
 
 
     public function setName($in_name){
         $this->name = $in_name;
     }
     public function getName(){
-        return $name;
+        return $this->name;
     }
-    public function addSong($in_song){
-        $length = count($songList);
-        $songList[$length] = $in_song;
+    // public function addSong($in_song){
+    //     $length = count($songList);
+    //     $songList[$length] = $in_song;
+    // }
+    // public function getSong(){
+    //     return $songList;
+    // }
+    public function setRangeStart($in_start){
+        $this->start = $in_start;
     }
-    public function getSong(){
-        return $songList;
+    public function setRangeEnd($in_end){
+        $this->end = $in_end;
+    }
+    public function getRangeStart(){
+        return $this->start;
+    }
+    public function getRangeEnd(){
+        return $this->end;
     }
 
 }
@@ -125,8 +139,8 @@ function countFreq($in_word){
     // array_push($wordList, $in_word);
     $return_songs = array();
 
-    // for($i = 0; $i< count($songList); $i++){
-       for($i = 0; $i< 2; $i++){
+    for($i = 0; $i< count($songList); $i++){
+       // for($i = 0; $i< 2; $i++){
 
     // foreach ($songList as $song) {
         # code...

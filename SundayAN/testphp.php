@@ -5,6 +5,7 @@ session_start();
 $artistList = array();// stores a list of artist
 $songList = array();
 $wordList = array();
+$str = "";
 // $lyrics
 
 //creating classes
@@ -52,11 +53,9 @@ function addToArtistList($in_artist_name){
     global $artistList;
     $new_artist = new artistClass();
     $new_artist->setName($in_artist_name);
-     array_push($artistList, $new_artist);
-    // $artist = "justin biber";
     
     $url = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=".$in_artist_name .
-    "&api_key=f791703e02b30485a7059d19d7913e34&format=json";
+    "&api_key=f791703e02b30485a7059d19d7913e34&format=json&limit=5";
     $params = array("method" => "artist.gettoptracks", 
         "artist" => $in_artist_name, 
         "api_key" => "f791703e02b30485a7059d19d7913e34",
@@ -80,6 +79,7 @@ function addToArtistList($in_artist_name){
     $arraycount = count($array);
     global $songList;
     // $new_song = new songClass();
+    $new_artist->setRangeStart(count($songList));
     for($i = 0; $i<$arraycount; $i++){
         $each = $array[$i];
         //adding each name to the name array
@@ -88,9 +88,11 @@ function addToArtistList($in_artist_name){
         $new_song->setName($each->{'name'});
 
         // var_dump($new_song);
-        // echo "<br><br>";
         array_push($songList, $new_song);
     }
+    $new_artist->setRangeEnd(count($songList));
+    array_push($artistList, $new_artist);
+
     // var_dump($songList[0]);
     bigString($in_artist_name);
 
@@ -99,11 +101,19 @@ function addToArtistList($in_artist_name){
 }
 
 function bigString($in_artist_name){
+    global $artistList;
     global $songList;
     // echo "this is a test<br>";
     // var_dump($songList[0]);
-    $str;
-    for($x = 0; $x < 2; $x++){
+    global $str;
+
+    $current_artist = $artistList[count($artistList)-1];
+    $start = $current_artist->getRangeStart();
+    $end = $current_artist->getRangeEnd();
+
+    // var_dump($artistList) ;
+    // echo $end;
+    for($x = $start; $x < $end; $x++){
         // echo songList.size."<br>";
     // foreach ($songList as $each_song) {
         # code...
@@ -122,16 +132,16 @@ function bigString($in_artist_name){
         curl_setopt_array($ch, $defaults);
         $output = curl_exec($ch);
         curl_close($ch);
-
         // var_dump($output) ;
         $json = json_decode($output) ;
         // var_dump($json) ;
-
         $json = $json->{"lyrics"};
         // echo "this is the song name:".$songList[$x]."   <br>";
         // echo $output;
         // echo "<br>".$json."<br>";
         // var_dump($json) ;
+        $formal_lyrics = explode(",", $json);
+        $songList[$x]->setLyrics($formal_lyrics);
 
         // echo "<Br> end of miehhhhhh<br><br>";
         $temp = trim( preg_replace( "/[^0-9a-z]+/i", " ", $json ) );
@@ -141,62 +151,40 @@ function bigString($in_artist_name){
         // echo "<br>this is the word array".$songList[$x]$word_array[0]."<br>";
         $str.= $temp;
     // print_r($output);
-    }        
+    }  
+
     echo $str;
 }
 
-$q = $_REQUEST["q"];
-// $q ="sillyb";
-// echo"this is the request ".$q."<Br>";
-$hint = "";
-if ($q != "") {
-    // $q = strtolower($q);
-    // $len=strlen($q);
-    // foreach($a as $name) {
-    //     if (stristr($q, substr($name, 0, $len))) {
-    //         if ($hint === "") {
-    //             $hint = $name;
-    //         } else {
-    //             $hint .= ", $name";
-    //         }
-    //     }
-    // }
-    addToArtistList("Justin Bieber");
-    // var_dump($songList); 
-    // $return = array("songs"=>$songList);
+//this function clears what's stored in the variables;
+function clearup(){
+    $artistList = array();
+    $songList = array();
+    $wordList = array();
+    $longstring = "";
+}
 
-    // $return = json_encode($return);
-    // var_dump($return);
-    // echo $songList;
-    // echo $return;
+$artist_name = $_REQUEST["artist_name"];
+$clear = $_REQUEST["clear"];
+if ($artist_name != "") {
+
+    if($clear==true){
+        echo "<br><br> this is a clear decision <br><br>";
+    }else{
+        clearup();
+    }
+    addToArtistList($artist_name);
+
 }else{
-    echo "q is empty";
+    echo "artist name is empty";
 }    
-
-// addToArtistList("Justin Biber");
-// echo $songList;
-    // $retun = array("songs"=>$songList);
-
-    // // $return = json_encode($return);
-    // echo $return;
-
-
-// $clickedWord = $_REQUEST["clicked_word"];
-// // var_dump($clickedWord);
-// if($clickedWord != ""){
-//     echo "shouldn't see this".$clickedWord;
-//     // $to_return = countFreq($clickedWord);
-//     $to_return = countFreq();
-//     // echo "<br> here is to return: <br>";
-//     var_dump($to_return);
-//     $to_return = json_encode($to_return);
-
-// }
 
 $_SESSION['artists'] = $artistList;
 $_SESSION['songs'] = $songList;
 $_SESSION['words'] = $wordList;
+$_SESSION['longString'] = $str;
 
+// addToArtistList("Justin Bieber");
 
 ?>
 

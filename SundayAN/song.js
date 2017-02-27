@@ -50,7 +50,8 @@ function showLyrics(in_id){
 			 console.log(returnValue);
 			 // alert("what the fu");
 			 localStorage.setItem("current_lyrics", returnValue);
-			 setTimeout(function(){window.location = "songs.html";}, 2000);
+
+			 setTimeout(function(){window.location = "lyrics.html";}, 2000);
 
 
 		}
