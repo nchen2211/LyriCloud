@@ -132,6 +132,7 @@ input[type="search"] {
 	color:#AFAAAA;
 	float:left;
 	display:inline-block;
+	font-size:12px;
 	
 }
 #sharebutton{
@@ -225,6 +226,7 @@ body {
 .backdiv{
 	text-align:left;
 	width:600px;
+	margin-right:20px;
 }
 a{
 	color:#000000;
@@ -276,3 +278,8 @@ ul{
 	width:800px;
 	margin-top:50px;
 	}
+.songTable{
+	width: = 700px;
+	margin-top:50px;
+	margin-left:50px;
+}
