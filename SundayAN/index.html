@@ -20,7 +20,8 @@
 	<script src="lib/d3/d3.js"></script>
     <script src="lib/d3/d3.layout.cloud.js"></script>
     <script src="d3.wordcloud.js"></script>
-    <script src="example.words.js"></script>
+    <script src="hashtable.js"></script>
+    
 <link rel="stylesheet" type="text/css" href="mycss.css">
 </head>
 
@@ -74,9 +75,11 @@
       		<input action="action" id="gobutton" type="button" class="button" value="GO" onClick="showCloud()" />
       </div>
       
-          <input  id="addbutton" type="button" class="button" value="ADD Artist" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
+         <!--  <input  id="addbutton" type="button" class="button" value="ADD Artist" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
           <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" />
-      
+    -->  
+     <input  id="addbutton" type="button" class="button" value="Add to Cloud" style="visibility:hidden;"  onClick="addArtist()"/>
+          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" onClick = "cropImg()"/> 
   </div>
   <div class="checkbox">
                       <label><input type="checkbox" value="" id="artist" class="music-type" checked="checked" style="display:none"/> </label>

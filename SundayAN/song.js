@@ -59,3 +59,7 @@ function showLyrics(in_id){
 	xmlhttp.open("GET", "lyrics.php?song_id="+in_id, true);
 	xmlhttp.send();
 }
+// function backToCloud(){
+// 	console.log("back to cloud clicked");
+// 	window.location = "index.html";
+// }
