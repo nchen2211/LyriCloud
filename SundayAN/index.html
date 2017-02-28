@@ -20,13 +20,12 @@
 	<script src="lib/d3/d3.js"></script>
     <script src="lib/d3/d3.layout.cloud.js"></script>
     <script src="d3.wordcloud.js"></script>
-    <!-- <script src="example.words.js"></script> -->
-    <script src="hashtable.js"></script>
+    <script src="example.words.js"></script>
 <link rel="stylesheet" type="text/css" href="mycss.css">
 </head>
 
 
-<div id="wordcloud"></div>
+
 
 <body class="bgcolor">
 
@@ -55,24 +54,31 @@
               </tbody>
             </table>
         </div>
-       <!-- <div class="cloud"> -->
-        	<!--<img id="wordcloudimg" src="images/webLogo.png" width="500px"  />-->
-      <!--  </div> -->
+       <div class="cloud"> 
+        	<img id="wordcloudimg" src="images/webLogo.png" width="500px"  />
+            <div class="cloud" id="wordcloud"></div>
+      </div> 
     </div>
 
 </div>
 
 <div class="box3">
-  
-        <div class="container">
-            <div class="row">
-             <span class="icon"><i class="fa fa-search" ></i></span>
-
-                
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Artist..." name="search" id="search"  />
-                    </div>
-                    <div class="checkbox">
+<div class="box3">
+  <div class="container-1">
+      <!--<span class="icon"><i class="fa fa-search" ></i></span>-->
+      <input type="search" id="search"  placeholder="Artist..." autocomplete="on"/>
+  		
+  </div>
+  <div id="btns">
+      <div class="container-1" >
+      		<input action="action" id="gobutton" type="button" class="button" value="GO" onClick="showCloud()" />
+      </div>
+      
+          <input  id="addbutton" type="button" class="button" value="ADD Artist" style="visibility:hidden;"  onClick="location.href='songs.html'"/>
+          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" />
+      
+  </div>
+  <div class="checkbox">
                       <label><input type="checkbox" value="" id="artist" class="music-type" checked="checked" style="display:none"/> </label>
                     </div>
                     <div class="checkbox">
@@ -81,29 +87,9 @@
                     <div class="checkbox">
                       <label><input type="checkbox" value="" id="trach" class="music-type" style="display:none"/> </label>
                     </div>
-                
-
-
-
-            </div>
-        </div>
-
-  <!--<div class="container-1">
-      <span class="icon"><i class="fa fa-search" ></i></span>
-      <input type="search" id="search"  placeholder="Search..." autocomplete="on"/>
-  		
-  </div>
-  -->
-  <div id="btns">
-      <div class="container-1" >
-      		<input action="action" id="gobutton" type="button" class="button" value="GO" onClick="showCloud()" />
-      </div>
-      
-          <input  id="addbutton" type="button" class="button" value="Add to Cloud" style="visibility:hidden;"  onClick="addArtist()"/>
-          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" onClick = "cropImg()"/>
-      
-  </div>
 </div>
+  
+        </div>
 
 
         <script type="text/javascript" src="lastfm-autocomplete-master/bower_components/jquery/dist/jquery.js"></script>

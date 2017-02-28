@@ -9,6 +9,8 @@ body {
 	vertical-align:central;
 	background: gray;
 }
+
+/*style for anchors */
 a{
 	color:#000000;
 	text-decoration:none;
@@ -44,7 +46,7 @@ a{
 }
 .cloud{
 	align-content:center;
-	pointer-events: none;
+	pointer-events: auto;
 	position: absolute;
 	display: inline-block;
 	left: 0px;
@@ -132,6 +134,7 @@ input[type="search"] {
 	color:#AFAAAA;
 	float:left;
 	display:inline-block;
+	font-size:12px;
 	
 }
 #sharebutton{
@@ -224,6 +227,8 @@ body {
 }
 .backdiv{
 	text-align:left;
+	width:600px;
+	margin-right:20px;
 }
 a{
 	color:#000000;
@@ -268,4 +273,18 @@ ul{
 
 #songList{
 	text-align:left;
+}
+.lyrics{
+	font-size:14px;
+	text-align:center;
+	width:800px;
+	margin-top:50px;
+	}
+.songTable{
+	width: = 700px;
+	margin-top:50px;
+	margin-left:50px;
+}
+#wordcloud{
+	background-color: #FFFFFF;
 }
