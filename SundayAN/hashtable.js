@@ -15,7 +15,7 @@ var pronouns = ["your","i","they","their","we","them", "u",
     "few","m","u","s","an","it","d","t", "is","was","am","were","are","you", "be", "be","ll",
     "this", "these","that","those","he", "she", "it", "we", "they", "what", "who",
     "me", "him", "her", "it", "us", "them", "whom","mine", "yours", "his", "hers", 
-    "ours", "theirs", "ve","t","don","not"]
+    "ours", "theirs", "ve","t","don","not", "and"]
 
 var set = new Set(pronouns)
 

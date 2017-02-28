@@ -15,22 +15,100 @@
         <link href="lastfm-autocomplete-master/lastfm-autocomplete.css" media="screen" rel="stylesheet" type="text/css"/>
 
 
-<script defer type="text/javascript"  src="myjsfile.js"></script>
-<script defer src="https://use.fontawesome.com/954d2dcd78.js"></script>
-	<script src="lib/d3/d3.js"></script>
+    <script defer type="text/javascript"  src="myjsfile.js"></script>
+    <script defer src="https://use.fontawesome.com/954d2dcd78.js"></script>
+	  <script src="lib/d3/d3.js"></script>
     <script src="lib/d3/d3.layout.cloud.js"></script>
     <script src="d3.wordcloud.js"></script>
     <script type="text/javascript" src="../html2canvas/dist/html2canvas.js"></script>
     <script type="text/javascript" src="../html2canvas/dist/canvas2image.js"></script>
+    <script src="http://code.jquery.com/jquery.min.js"></script>  
     <script src="hashtable.js"></script>
     
 <link rel="stylesheet" type="text/css" href="mycss.css">
 </head>
 
-
-
-
 <body class="bgcolor" onload = "reload()">
+
+<!-- Initialize facebook SDK-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=675717919275394";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- A helper function that helps compute the facebok share url given an public url of the image-->
+<script language="javascript">
+    function fbshareCurrentPage(https, website){
+      if(https == true){
+        return website;
+        //document.write(website); 
+      }else{
+        var shareLinked = "https://www.facebook.com/sharer/sharer.php?u=";
+        var parsedWebsite = encodeURIComponent(website);
+        var restJSdependencies = "%2F&amp;src=sdkpreparse";
+        return shareLinked.concat(parsedWebsite, restJSdependencies)
+        document.write(encodeURIComponent(website))  
+      }
+    }
+</script>
+
+<script>
+function share(){
+    var canvas_img;
+    html2canvas($('#wordcloud'), {
+         onrendered: function(canvas) {
+          //this is the callback when canvas is rendered
+          var returnURL = "";
+          try {
+              var img = canvas.toDataURL('image/png', 0.9).split(',')[1];
+          } catch(e) {
+              var img = canvas.toDataURL().split(',')[1];
+          }
+          // open the popup in the click handler so it will not be blocked
+          // var w = window.open();
+          // w.document.write('Uploading...');
+          // upload to imgur using jquery/CORS
+          // https://developer.mozilla.org/En/HTTP_access_control
+          $.ajax({
+              url: 'https://api.imgur.com/3/upload',
+              method: 'POST',
+              dataType: 'json',
+              headers: {
+                  Authorization: 'Client-ID 733f64f7fc2d307'
+              },
+              data: {
+                  type: 'base64',
+                  // get your key here, quick and fast http://imgur.com/register/api_anon
+                  key: '733f64f7fc2d307',
+                  name: 'neon.jpg',
+                  title: 'wordcloud',
+                  caption: 'Dope wordcloud',
+                  image: img
+              }
+          }).success(function(data) {
+              var id = data.data.id;
+              //get the url of the uploaded image
+              imageurl = "https://imgur.com/gallery/" + id;
+              console.log("imageurl" + imageurl);
+              //convert it to the url of facebook sharing
+              returnURL = fbshareCurrentPage(false, imageurl);
+              //open a new window for fb sharing
+              console.log("finalULR" + returnURL);
+              window.open (returnURL,"facebook sharing");
+          }).error(function() {
+              alert('Could not reach api.imgur.com. Sorry :(');
+              w.close();
+          });
+          return returnURL;
+        },
+        width: 500,
+        height: 350
+    });
+}</script>
 
 
 <div class="box">
