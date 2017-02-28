@@ -20,6 +20,8 @@
 	<script src="lib/d3/d3.js"></script>
     <script src="lib/d3/d3.layout.cloud.js"></script>
     <script src="d3.wordcloud.js"></script>
+    <script type="text/javascript" src="../html2canvas/dist/html2canvas.js"></script>
+    <script type="text/javascript" src="../html2canvas/dist/canvas2image.js"></script>
     <script src="hashtable.js"></script>
     
 <link rel="stylesheet" type="text/css" href="mycss.css">
@@ -28,7 +30,7 @@
 
 
 
-<body class="bgcolor">
+<body class="bgcolor" onload = "reload()">
 
 
 <div class="box">
@@ -79,7 +81,7 @@
           <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" />
     -->  
      <input  id="addbutton" type="button" class="button" value="Add to Cloud" style="visibility:hidden;"  onClick="addArtist()"/>
-          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" onClick = "cropImg()"/> 
+          <input id="sharebutton" type="button" class="button" value="Share"   style="visibility:hidden;" onClick = "share()"/> 
   </div>
   <div class="checkbox">
                       <label><input type="checkbox" value="" id="artist" class="music-type" checked="checked" style="display:none"/> </label>

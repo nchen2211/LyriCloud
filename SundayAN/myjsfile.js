@@ -133,3 +133,85 @@ function processCloud(in_array){
 
 }
 
+
+	function backToCloud(){
+			console.log("back");
+			localStorage["rehome"] =JSON.stringify(1);
+			window.location = "index.html";	
+
+/*
+			var xmlhttp = new XMLHttpRequest();
+			
+			xmlhttp.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status ==200){
+
+					var returnValue= (this.responseText);
+			 		console.log(returnValue);
+			 		localStorage.setItem("storedWords", returnValue);
+
+			 		setTimeout(function(){window.location = "index.html";}, 2000);
+
+
+					}
+			};
+				xmlhttp.open("GET", "back.php", true);
+				xmlhttp.send();
+*/				
+	}
+
+
+	function reload(){
+		/*
+		if (localStorage.getItem("home") == null){
+			localStorage.setItem("home", JSON.stringify(1));
+		}
+		*/
+		if (localStorage.getItem("rehome") == null){
+			localStorage.setItem("rehome", JSON.stringify(0));
+		}	
+		//var home = parseInt(localStorage.getItem("home"));
+		var rehome = parseInt(localStorage.getItem("rehome"));	
+		//console.log("home");
+		//console.log(home);
+		console.log("rehome");
+		console.log(rehome);
+		//var wordList = localStorage.getItem("selectedWord");
+		if (rehome==1){
+			console.log("reload");
+			localStorage["rehome"] =JSON.stringify(0);
+			var wordList = localStorage.getItem("selectedWord");
+			console.log(wordList);
+			wordList = JSON.parse(wordList);
+			console.log(wordList);
+		}
+		/*
+		if (localStorage.getItem("selectedWord") != null) {
+  			console.log("reload");
+  			//wordList = JSON.parse(wordList);
+			console.log(wordList);
+			//processCloud(wordList);
+		}
+		*/
+
+	}
+
+	function share(){
+        
+		html2canvas($('#wordcloud'), {
+ 			 onrendered: function(canvas) {
+    		document.body.appendChild(canvas);
+  			},
+  			width: 300,
+  			height: 200
+		});
+
+		/*
+        html2canvas(document.body).then(function(canvas) {
+            
+            
+            var i = Canvas2Image.convertToImage(canvas, 50, 50, "png");
+            //var src = document.getElementById("img");
+            document.body.appendChild(i);
+        });
+        */
+	}
