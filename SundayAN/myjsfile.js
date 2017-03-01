@@ -125,7 +125,7 @@ function processCloud(in_array){
 
 	d3.wordcloud()
 			.size([500, 300])
-			.fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
+			.fill(d3.scale.ordinal().range(["#9926b2", "#604865", "#6e08b5", "#504f50"]))
 			.words(words)
 			.start();
 
@@ -214,4 +214,13 @@ function processCloud(in_array){
             document.body.appendChild(i);
         });
         */
+	}
+
+	// function for Enter key 
+	window.onload = function() {
+		document.getElementById('search').onkeypress = function searchKeyPress(event) {
+			if (event.keyCode == 13) {
+				document.getElementById('gobutton').click();
+			}
+		}
 	}
