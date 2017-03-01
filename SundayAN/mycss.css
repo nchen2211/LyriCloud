@@ -3,7 +3,8 @@
 
 
 body {
-	
+	align-content:center;
+	align-items:center
 	alignment-adjust:100% ;
 	text-align:center;
 	vertical-align:central;
@@ -26,6 +27,7 @@ a{
 	  alignment-adjust:central;
 	  align-content:center;
 	  z-index:-1;
+	  position:relative;
 }
 .box3{
 	  margin: 0 auto;
@@ -54,21 +56,25 @@ a{
 	z-index: 0;
 }
 
-
+.searchbox{
+	position: relative;
+	margin-top: 200px;
+	align-content: center;
+	height: 50px;
+}
 input#search{
-  width: 300px;
-  height: 50px;
-  border:purple solid medium;
-  font-size: 10pt;
-  float: left;
-  text-align:left;
-  color: #000000;
-  padding-left: 45px;
-  margin-top:200px;
-  margin-left: 770px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px; 
+
+	width: 300px;
+	height: 50px;
+	border: purple solid medium;
+	font-size: 10pt;
+	color: #000000;
+	padding-left: 45px;
+	margin-top: 20px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	position: inherit;
 }
 
 input#search:hover, input#search:focus, input#search:active{
@@ -79,9 +85,9 @@ input#search:hover, input#search:focus, input#search:active{
 
 
 input#search:hover, input#search:focus, .input#search:active{
-    outline:none;
-    background: rgba(198,169,202,1.00);
-    pointer-events: auto;
+	outline: none;
+	background: rgba(198,169,202,1.00);
+	pointer-events: auto;
   }
 
 .container-1 {
@@ -168,12 +174,15 @@ input[type="search"] {
 #gobutton{
 	background-color:rgb(128,0,128);
 	color:#AFAAAA;
+	margin-right:100px;
+	text-align:center;
 	
 }
 #gobutton.move
 {
 	float:left;
-	/*margin-left:30px;*/
+	margin-left:30px;
+	margin-right:10px;
 }
 #addbutton{
 	background-color:#55298B;
@@ -200,7 +209,9 @@ input[type="search"] {
 	width:300px;
 	vertical-align:central;
 	align-content: center;
-	margin-left: 780px;
+	margin-top:20px;
+	position:relative;
+	
 }
 
 
