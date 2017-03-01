@@ -315,7 +315,6 @@ a{
 	padding-left:10px;
 	align-content:center;
 	text-align:center;
-
 }
 ul{
 	list-style-image:url(images/iTunes.png);
@@ -329,7 +328,9 @@ ul{
 	text-align:center;
 	width:800px;
 	margin-top:50px;
-	}
+	margin-left: auto;
+	margin-right: auto;
+}
 .songTable{
 	width: = 700px;
 	margin-top:50px;
