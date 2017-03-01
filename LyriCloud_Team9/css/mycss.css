@@ -56,20 +56,21 @@ a{
 
 
 input#search{
-  width: 300px;
+  width: 70%;
   height: 50px;
   border:purple solid medium;
-  font-size: 10pt;
-  float: left;
+  font-size: 15pt;
+  float: center;
   text-align:left;
   color: #000000;
-  padding-left: 45px;
-  margin-top:200px;
-  margin-left: 770px;
+  padding-left: 20px;
+  margin-top:30%;
+  /* margin-left: 770px; */
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px; 
 }
+
 
 input#search:hover, input#search:focus, input#search:active{
     outline:none;
@@ -140,10 +141,10 @@ input[type="search"] {
 .button{
 	background-color:rgb(128,0,128);
 	color:#545050;
-	width: 70px;
+	width: 100px;
 	border-radius: 4px;
 	border: 2px solid #631962;
-	height: 30px;
+	height: 40px;
 	background-color: purple; 
     border: none;
     color: white;
@@ -151,8 +152,8 @@ input[type="search"] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px; 
-	margin-top: 10px;
-	margin-right: 10px;
+	margin-top: 20px;
+	margin-right: 10%;
 }
 
 .artistNames{
@@ -168,20 +169,22 @@ input[type="search"] {
 #gobutton{
 	background-color:rgb(128,0,128);
 	color:#AFAAAA;
+	float:  center;
+	margin-left: 40%;
 	
 }
 #gobutton.move
 {
-	float:left;
-	/*margin-left:30px;*/
+	float:center;
+	margin-left:10%;
 }
 #addbutton{
 	background-color:#55298B;
 	color:#AFAAAA;
-	float:left;
+	/* float:left; */
 	display:inline-block;
-	font-size:12px;
-	width: 100px;
+	/* font-size:12px; */
+	width: 120px;
 	
 }
 #sharebutton{
@@ -192,15 +195,16 @@ input[type="search"] {
 	padding-top: 5px;
 	text-align:right;
 	color:#FFFFFF;
-	float:left;
+	/* float:left; */
 	display:inline-block;
 	
 }
-#btns{
-	width:300px;
+.btns{
+	/* width:300px; */
 	vertical-align:central;
 	align-content: center;
-	margin-left: 780px;
+	float: center;
+	/* margin-left: 780px; */
 }
 
 

@@ -8,21 +8,22 @@
 <script src="../js/lyriCloud.js"></script>
 <script src="../js/songList.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/mycss.css">
+<link rel="stylesheet" href="../css/lyrics.css">
 </head>
 
 
 <body onload = "ready()">
-    <div class="box1">
+    <div class="backdiv back_button">
+            <input action="action" onclick="window.history.back();" class="back2" type="button" value="Back to Songs" />
+            <input action="action" onclick="backToCloud();" class="back2" type="button" value="Back to Cloud" /> 
+    </div>
+    <div class="box1 list_body">
         <div class="header"	>
         	<p id="current_song"> Song Name</p>
         </div>
         
-      	<div class="midtext"></div>
       	<div class="content">
-      		<div class="backdiv">
-      			<input action="action" onclick="window.history.back();" class="back2" type="button" value="Back to Songs" />
-            <input action="action" onclick="backToCloud();" class="back2" type="button" value="Back to Cloud" /> 
-      		</div>
+
           <div id= "lyric" class="lyrics"></div>
         </div>
          

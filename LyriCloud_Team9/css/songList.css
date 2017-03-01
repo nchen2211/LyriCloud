@@ -1,0 +1,38 @@
+#clicked_word{
+}
+.back_button{
+	padding-left: 5%;
+}
+.list_body{
+	padding-top: 50px;
+	width: 90%;
+}
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    padding-right: 10px;
+}
+
+th, td {
+    padding: 15px;
+    height: 50px;
+}
+
+td:hover {
+    opacity: 1.0;
+}
+
+.left{
+	width: 20%;
+}
+
+.songlist{
+	background-color:  #000000;
+	background-color: rgba(245, 245, 245, 0.1);
+
+}

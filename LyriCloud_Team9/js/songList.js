@@ -21,9 +21,9 @@ function addSong(songName, frequency, id){
         i;
     // insert table cells to the new row
 	
-		createCell(row.insertCell(0),  id, 'row');
+		createCell(row.insertCell(0),  frequency, 'row');
         createCell(row.insertCell(1),songName , 'row');
-		createCell(row.insertCell(2),frequency, 'row');
+		// createCell(row.insertCell(2),frequency, 'row');
 	row.setAttribute("name", songName);
     row.setAttribute("id", id);
     row.setAttribute("onclick", "showLyrics("+id+")");
@@ -32,7 +32,10 @@ function addSong(songName, frequency, id){
 function createCell(cell, text, style) {
     var div = document.createElement('div'), // create DIV element
         txt = document.createTextNode(text); // create text node
-    div.appendChild(txt);                    // append text node to the DIV
+    div.appendChild(txt); 
+    // if(text=="frequency"){
+    // 	div.setAttribute("class", "left");
+    // }                   // append text node to the DIV
     div.setAttribute('class', style);        // set DIV class attribute
     div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
     cell.appendChild(div);                   // append DIV to the table cell

@@ -6,35 +6,35 @@
 <script defer type="text/javascript"  src="../js/songList.js"></script>
 <script src="../js/lyriCloud.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/mycss.css">
+<link rel="stylesheet" href="../css/songList.css">
 
 </head>
 
 
 
 <body onload="ready()">
-    <div class="box1">
+    <div class = "back_button">
+        <p class="backdiv">
+              <input action="action" onclick="backToCloud()" class="back" type="button" value="Back" />
+        </p>
+    </div>
+    <div class="box1 list_body">
+
         <div class="header" >
-          <p id="clicked_word"></p>
+            <!-- <button type="button" class="btn btn-primary btn-lg" onclick="backToCloud()">Large</button> -->
+
+          <div id="clicked_word"></div>
         </div>
-        <div class="midtext"  >
-          <!-- <p id="wordClicked"> List of lates songs containing word: Word Clicked</p> -->
-            
-        </div>
-        <div class="content">
-          <div class="backdiv">
-            <input action="action" onclick="backToCloud()" class="back" type="button" value="Back" />
-          </div>
-          <div>
-                 <table  id="songList" width="600" border="0" cellspacing="0" cellpadding="0">
-                  <tbody>
+
+
+        <div class=" songlist">
+
+                 <table  id="songList" >
                     <tr>
-                      <td>ID</td>
-                      <td><a href="lyrics.html">Song Name</a></td>
-                      <td>Frequency</td>
+                      <th class = "left" >Frequency</th>
+                      <th>Song Name</th>
                     </tr>
-                  </tbody>
                 </table>
-          </div>
         </div>
          
     </div>
