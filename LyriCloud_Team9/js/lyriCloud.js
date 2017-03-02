@@ -26,6 +26,7 @@ function inputchange( i){
 
 //this function clear the current cloud and add a new one	
 function showCloud(){
+	document.getElementById('cloud_title').innerHTML = "";
 	var words = [];
 	localStorage.setItem("selectedWord", "");
 	var artist = document.getElementById('search').value;
@@ -42,6 +43,7 @@ function addArtist(){
 }
 
 function loadAllLyrics(clear, in_name){
+	localStorage.setItem("title_artist", in_name);
 	var returnValue = "";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -92,6 +94,9 @@ function showButtons(){
 	document.getElementById("addbutton").style.visibility="visible";
 	document.getElementById("sharebutton").style.visibility="visible"; 
 	document.getElementById("gobutton").className = document.getElementById("gobutton").className + " move";
+	if(document.getElementById('cloud_title').innerHTML!="")document.getElementById('cloud_title').innerHTML += ", ";
+	document.getElementById('cloud_title').innerHTML += localStorage.getItem("title_artist");
+	localStorage.setItem("title_artist", document.getElementById('cloud_title').innerHTML);
 }
 
 function share(){
@@ -110,7 +115,8 @@ function share(){
           // w.document.write('Uploading...');
           // upload to imgur using jquery/CORS
           // https://developer.mozilla.org/En/HTTP_access_control
-          var name = document.getElementById('search').value;
+          // var name = document.getElementById('search').value;
+          var name = localStorage.getItem("title_artist");
 
           $.ajax({
               url: 'https://api.imgur.com/3/upload',
