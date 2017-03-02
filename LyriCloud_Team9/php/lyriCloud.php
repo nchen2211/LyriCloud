@@ -33,7 +33,7 @@ function addToArtistList($in_artist_name){
     $new_artist->setName($in_artist_name);
     
     $url = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=".$in_artist_name .
-    "&api_key=f791703e02b30485a7059d19d7913e34&format=json&limit=5";
+    "&api_key=f791703e02b30485a7059d19d7913e34&format=json&limit=20";
     $params = array("method" => "artist.gettoptracks", 
         "artist" => $in_artist_name, 
         "api_key" => "f791703e02b30485a7059d19d7913e34",
