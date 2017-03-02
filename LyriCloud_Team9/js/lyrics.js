@@ -1,9 +1,12 @@
 function ready(){
 	var clicked_word = localStorage.getItem("clicked_word");
 	var current_song = localStorage.getItem("current_song");
+    var current_artist = localStorage.getItem("current_artist");
+    console.log("this is the current artist"+current_artist);
 	var lyrics = localStorage.getItem("current_lyrics");
 	console.log(current_song);
 	document.getElementById('current_song').innerHTML = current_song;
+    document.getElementById('current_artist').innerHTML = current_artist;
 
 	lyrics = JSON.parse(lyrics);
 	for(var i = 0; i < lyrics.length; i++){
@@ -15,7 +18,7 @@ function displayLyric(text) {
     
     var newParagraph = document.createElement('p');
     newParagraph.textContent = text;
-    var clicked_word = localStorage.getItem("clicked_word");
+    var clicked_word = localStorage.getItem("clicked_word").toLowerCase();
     console.log("this is the clicked word "+ clicked_word);
 
     var line = newParagraph.innerHTML;
@@ -38,11 +41,13 @@ function displayLyric(text) {
     document.getElementById("lyric").appendChild(newParagraph);
 }
 function processContent(in_word, in_line){
-	console.log("looping");
-	var end = in_line.indexOf(" "+in_word+" ");
+    var temp = (in_line.toLowerCase());
+	var end = temp.indexOf(""+in_word+"");
 	if(end < 0) return in_line;
-	var line = in_line.substring(0,end+1) 
-	+ "<span class='highlight'>" + in_line.substring(end+1,end+in_word.length+1) + "</span>" 
-	+ processContent(in_word, in_line.substring(end + in_word.length+1));
+    console.log("looping");
+
+	var line = in_line.substring(0,end) 
+	+ "<span class='highlight'>" + in_line.substring(end,end+in_word.length) + "</span>" 
+	+ processContent(in_word, in_line.substring(end + in_word.length));
 	return line;
 }

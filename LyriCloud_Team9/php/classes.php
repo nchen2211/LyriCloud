@@ -48,7 +48,7 @@ class songClass{
     private $songName = "hhhhh";
     private $lwords;//an array of the words
     private $lyrics;//an array of words
-    private $artistID;
+    private $artistName;
 
     public function setID($in_id){
         $this->songID = $in_id;
@@ -74,13 +74,16 @@ class songClass{
         return $this->lyrics;
     }
     public function setArtist($in_artist){
-        $this->artistID = $in_artist;
+        $this->artistName = $in_artist;
+    }
+    public function getArtist(){
+        return $this->artistName;
     }
     //return the count of an given word in that song.
     public function returnCount($in_word){
         $count = 0;
         foreach ($this->lwords as $word ) {
-            if($word == $in_word){
+            if(strtolower($word) == strtolower($in_word)){
                 // echo "<br>here is a match<br>";
                 $count++;
             }
@@ -151,11 +154,12 @@ function countFreq($in_word){
         $key0 = "songID";
         $key1 = "songname";
         $key2 = "freq";
+        $key3 = "artist";
         $word_count = $songList[$i]->returnCount($in_word);
         if($word_count > 0){
             // $entry =  array("songID" =>$i , "songname" => $song.getName(), "freq" => $word_count);
             
-            $entry =  array($key0 =>$i , $key1 => $songList[$i]->getName(), $key2 => $word_count);
+            $entry =  array($key0 =>$i , $key1 => $songList[$i]->getName(), $key2 => $word_count, $key3 => $songList[$i]->getArtist());
             array_push($return_songs, $entry);
         }
         //put the frequency info into the word Class

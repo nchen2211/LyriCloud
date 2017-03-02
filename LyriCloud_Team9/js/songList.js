@@ -1,12 +1,10 @@
 function ready(){
 	var clicked_word = localStorage.getItem("clicked_word");
 	var list = localStorage.getItem("songs_to_show");
-	// console.log("from second page");
-	// console.log(the_word);
-	// console.log(list);
+
 	document.getElementById('clicked_word').innerHTML = clicked_word;
 	list = JSON.parse(list);
-	// console.log(list);
+	console.log(list);
 	var length = list.length;
 
 	var flag =1;
@@ -23,13 +21,13 @@ function ready(){
 	}
 
 	for(var i = 0; i < length; i++){
-		addSong(list[i].songname, list[i].freq, list[i].songID);
+		addSong(list[i].songname, list[i].freq, list[i].songID, list[i].artist);
 	}
 }
 
 
 //dynamically adding rows in songs.html for songname and frequency
-function addSong(songName, frequency, id){
+function addSong(songName, frequency, id, artist){
 	 var tbl = document.getElementById('songList'), // table reference
         row = tbl.insertRow(tbl.rows.length),      // append table row
         i;
@@ -41,6 +39,8 @@ function addSong(songName, frequency, id){
 	row.setAttribute("name", songName);
     row.setAttribute("id", id);
     row.setAttribute("onclick", "showLyrics("+id+")");
+    console.log(artist);
+    row.setAttribute("artist", artist);
 }
 
 function createCell(cell, text, style) {
@@ -59,8 +59,10 @@ function createCell(cell, text, style) {
 function showLyrics(in_id){
 	// console.log("yeaaaahhhhhh");
 	var current_song = document.getElementById(in_id).getAttribute("name");
+	var current_artist = document.getElementById(in_id).getAttribute("artist");
 	// console.log("this is the current song: "+current_song);
 	localStorage.setItem("current_song", current_song);
+	localStorage.setItem("current_artist", current_artist);
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status ==200){

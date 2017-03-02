@@ -9,7 +9,6 @@ session_start();
 // $lyrics
 
 //creating classes
-
 //the following function sort the word with ascending value 
 function cmpWord($word1, $word2){
     if($word1->$count == $word2->$count){
@@ -25,17 +24,6 @@ function getLyrics($in_id){
     $Lyrics = $current_word.getSongLyrics($in_id);
     return $Lyrics;
 }
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // collect value of input field
-//     echo "post triggered";
-//     $name = htmlspecialchars($_REQUEST['fname']); 
-//     if (empty($name)) {
-//         echo "Name is empty";
-//     } else {
-//         echo $name;
-//     }
-// }
 
 function addToArtistList($in_artist_name){
     // echo $in_artist_name;
@@ -76,7 +64,7 @@ function addToArtistList($in_artist_name){
         $new_song = new songClass();
         // var_dump($each->{'name'});
         $new_song->setName($each->{'name'});
-
+        $new_song->setArtist($in_artist_name);
         // var_dump($new_song);
         array_push($songList, $new_song);
     }
@@ -93,8 +81,6 @@ function addToArtistList($in_artist_name){
 function bigString($in_artist_name){
     global $artistList;
     global $songList;
-    // echo "this is a test<br>";
-    // var_dump($songList[0]);
     global $wordList;
     global $str;
 
