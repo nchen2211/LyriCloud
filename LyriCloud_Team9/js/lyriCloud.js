@@ -110,6 +110,8 @@ function share(){
           // w.document.write('Uploading...');
           // upload to imgur using jquery/CORS
           // https://developer.mozilla.org/En/HTTP_access_control
+          var name = document.getElementById('search').value;
+
           $.ajax({
               url: 'https://api.imgur.com/3/upload',
               method: 'POST',
@@ -122,7 +124,7 @@ function share(){
                   // get your key here, quick and fast http://imgur.com/register/api_anon
                   key: '733f64f7fc2d307',
                   name: 'neon.jpg',
-                  title: 'wordcloud',
+                  title: name,
                   caption: 'Dope wordcloud',
                   image: img
               }
