@@ -8,6 +8,20 @@ function ready(){
 	list = JSON.parse(list);
 	// console.log(list);
 	var length = list.length;
+
+	var flag =1;
+	for (var i=1; (i<length)&&(flag==1);i++ ){
+		flag = 0;
+		for (var j =0; j<(length-1);j++){
+			if (list[j+1].freq > list[j].freq){
+				var temp =list[j];
+				list[j] =list[j+1];
+				list[j+1] = temp;
+				flag =1 ; 
+			}
+		}
+	}
+
 	for(var i = 0; i < length; i++){
 		addSong(list[i].songname, list[i].freq, list[i].songID);
 	}

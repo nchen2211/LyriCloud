@@ -63,7 +63,7 @@ function loadAllLyrics(clear, in_name){
 
 function processCloud(in_array){
 	var words;
-	if(words !="notarray"){
+	if(in_array !="notarray"){
 		words = [];
 		for(var i = 0; i < in_array.length; i++){
 			var each = {text: in_array[i].word, size: in_array[i].freq }
@@ -72,7 +72,7 @@ function processCloud(in_array){
 	}else{
 		words = localStorage.getItem("selectedWord");
 		words = JSON.parse(words);
-	console.log(words);
+		console.log("this is the word"+words);
 	}
 	var temp = JSON.stringify(words);
 	localStorage.setItem("selectedWord", temp);
