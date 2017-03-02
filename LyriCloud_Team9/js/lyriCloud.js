@@ -12,7 +12,7 @@ function ready(){
 		console.log("here here");
 		document.getElementById('wordcloudimg').style.visibility = "hidden";
 		localStorage.setItem("reload","false");
-		var x;
+		var x = "notarray";
 		processCloud(x);
 	}
 	
@@ -58,20 +58,19 @@ function loadAllLyrics(clear, in_name){
 		xmlhttp.open("GET", "../php/lyriCloud.php?artist_name="+in_name+"&clear=false", true);
 	}
 	xmlhttp.send();
-	return returnValue;
+	// return returnValue;
 }
 
 function processCloud(in_array){
-	var words = localStorage.getItem("selectedWord");
-	console.log(words);
-
-	if(words ==""){
+	var words;
+	if(words !="notarray"){
 		words = [];
 		for(var i = 0; i < in_array.length; i++){
 			var each = {text: in_array[i].word, size: in_array[i].freq }
 			words.push(each);
 		}
 	}else{
+		words = localStorage.getItem("selectedWord");
 		words = JSON.parse(words);
 	console.log(words);
 	}

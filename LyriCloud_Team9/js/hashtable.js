@@ -2,8 +2,8 @@ var pronouns = ["your","i","they","their","we","them", "u",
     "its","our","my","those","he","us","her","something",
     "me","yourself","someone","everything","itself","everyone",
     "themselves","anyone","him","whose","myself","everybody",
-    "ourselves","himself","somebody","herself","whoever", "whomever",
-    "that","it","this","what","which", "whichever","these","his","she",
+    "ourselves","himself","somebody","herself","whoever",
+    "that","it","this","what","which","these","his","she",
     "lot","anything","whatever","nobody","none","mine","anybody",
     "some","there","all","where","another","same","certain","nothing",
     "self","nowhere","with","at","from","into","during","including",
@@ -15,14 +15,13 @@ var pronouns = ["your","i","they","their","we","them", "u",
     "few","m","u","s","an","it","d","t", "is","was","am","were","are","you", "be", "be","ll",
     "this", "these","that","those","he", "she", "it", "we", "they", "what", "who",
     "me", "him", "her", "it", "us", "them", "whom","mine", "yours", "his", "hers", 
-    "ours", "theirs", "ve","t","don","not", "and", "any", "some", "few", "many", "so",
-    "each", "either", "neither", "both", "several", "most", "more"]
+    "ours", "theirs", "ve","t","don","not", "and", "any", "some", "few", "many", "so"]
 
 var set = new Set(pronouns)
 
 /*
  this function gets a string array, calculate each string frequency,
- and sorted in descending order based on the highest frequencys
+ and sorted in descending order based on the highest frequency
  */
 function search(in_data) {
     var data = in_data;

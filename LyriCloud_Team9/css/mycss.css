@@ -221,7 +221,7 @@ body {
 .box1{
   margin: 0 auto;
   width: 900px;
-  height: 700px;
+  height: 100%;
   margin-top:10px ;
   margin-bottom:auto;
 
@@ -309,7 +309,7 @@ a{
 .content{
 	background-color:#736570;
 	background: linear-gradient(180deg, #736570, #64505F);
-	height: 700px;
+	height: 100%;
 	width:100%;
 	padding-top:40px;
 	padding-left:10px;
