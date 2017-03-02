@@ -6,7 +6,7 @@ function ready(){
 	var lyrics = localStorage.getItem("current_lyrics");
 	console.log(current_song);
 	document.getElementById('current_song').innerHTML = current_song;
-    document.getElementById('current_artist').innerHTML = current_artist;
+    document.getElementById('current_artist').innerHTML = "by "+current_artist;
 
 	lyrics = JSON.parse(lyrics);
 	for(var i = 0; i < lyrics.length; i++){
